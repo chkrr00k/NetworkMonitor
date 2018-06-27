@@ -1,0 +1,6 @@
+#set here your default dc with proper pattern
+dn: dc=amm,dc=nodomain
+dc: amm
+o: Example Organization
+objectClass: dcObject
+objectClass: organization

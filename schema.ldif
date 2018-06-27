@@ -1,0 +1,32 @@
+dn: cn=network,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: network
+olcAttributeTypes: ( 1000.1.1.1 NAME ( 'ip' )
+  DESC 'ip host'
+  EQUALITY caseExactMatch
+  SUBSTR caseExactSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1000.1.1.2 NAME ( 'mac' )
+  DESC 'mac'
+  EQUALITY caseExactMatch
+  SUBSTR caseExactSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1000.1.1.3 NAME ( 'hostname' )
+  DESC 'name of the host'
+  EQUALITY caseExactMatch
+  SUBSTR caseExactSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: (1000.1.1.4 NAME ( 'timestamp' )
+  DESC 'Timestamp'
+  EQUALITY caseExactMatch
+  SUBSTR caseExactSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 ) 
+olcObjectClasses: ( 1000.1.1.5 NAME 'node'
+  DESC 'A node in the system'
+  MUST ( ip )
+  MAY ( mac $ hostname )
+  STRUCTURAL )
+olcObjectClasses: ( 1000.1.1.6 NAME 'scan'
+  DESC 'A scansion made at a certain time'
+  MUST ( timestamp )
+  STRUCTURAL )
